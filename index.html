@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Kalid Hassen Yasin · Geospatial Data Scientist</title>
+  <meta name="description" content="Kalid Hassen Yasin — geospatial data scientist, remote sensing and Earth observation researcher. Lecturer at Haramaya University, Co-PI on an ESA / Future Earth project.">
+  <meta name="keywords" content="GIS, Remote Sensing, Earth Observation, Machine Learning, Cartography, Copernicus, Ethiopia, Kalid Hassen Yasin">
+  <meta name="author" content="Kalid Hassen Yasin">
+  <meta name="theme-color" content="#000000">
+  <meta property="og:title" content="Kalid Hassen Yasin · Geospatial Data Scientist">
+  <meta property="og:description" content="Research, maps and projects in GIS, remote sensing and Earth observation — explored from orbit.">
+  <meta property="og:image" content="assets/images/kalid_profile.jpg">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='22' fill='%230c2c52' stroke='%23e3b35a' stroke-width='3'/%3E%3Cellipse cx='32' cy='32' rx='10' ry='22' fill='none' stroke='%237fd4ff' stroke-width='2'/%3E%3Cpath d='M10 32h44M14 21h36M14 43h36' stroke='%237fd4ff' stroke-width='2'/%3E%3Cellipse cx='32' cy='32' rx='30' ry='9' fill='none' stroke='%23e3b35a' stroke-width='2' transform='rotate(-20 32 32)'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Playfair+Display:ital,wght@0,600;0,700;0,800;0,900;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/orbit.css">
+</head>
+<body class="is-loading is-intro">
+
+  <canvas id="scene" aria-hidden="true"></canvas>
+
+  <div id="loader" role="status" aria-live="polite">
+    <div class="ld-orbit"><span></span></div>
+    <p class="ld-text">Acquiring signal<span id="ldPct"></span></p>
+  </div>
+
+  <header class="topbar">
+    <a class="brand" href="#" id="brandHome" aria-label="Back to the start">
+      <svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="20" fill="none" stroke="currentColor" stroke-width="2.5"/><ellipse cx="32" cy="32" rx="9" ry="20" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 32h40" stroke="currentColor" stroke-width="2"/><ellipse cx="32" cy="32" rx="29" ry="8" fill="none" stroke="#e3b35a" stroke-width="2.5" transform="rotate(-20 32 32)"/></svg>
+      <span>Kalid Hassen Yasin</span>
+    </a>
+    <nav class="topnav" aria-label="Views">
+      <a href="classic.html">Classic view</a>
+      <a id="btnCV" href="assets/kalid_hassen_yasin_cv.pdf" download>CV ↓</a>
+    </nav>
+  </header>
+  <nav class="tabs" id="tabs" aria-label="Sections"></nav>
+
+  <section id="intro" aria-labelledby="introName">
+    <p class="intro-kicker">Geospatial Data Scientist</p>
+    <h1 id="introName">Kalid<br>Hassen Yasin</h1>
+    <p class="intro-role" id="introRole"></p>
+    <p class="intro-line" id="introLine"></p>
+    <div class="intro-stats" id="introStats"></div>
+    <div class="intro-actions">
+      <button type="button" class="btn btn-gold" id="btnEnter">Enter the orbit <span aria-hidden="true">→</span></button>
+      <a class="btn btn-ghost" href="classic.html" style="text-decoration:none">Classic view</a>
+    </div>
+    <p class="intro-hint">Scroll, drag or use the arrow keys to travel the orbit. Click a sheet to open it.</p>
+  </section>
+
+  <div id="hud" aria-live="polite">
+    <div class="caption">
+      <div class="cap-kicker" id="capKicker"></div>
+      <div class="cap-title" id="capTitle"></div>
+      <div class="cap-sub" id="capSub"></div>
+    </div>
+    <div class="telemetry" id="telemetry" aria-hidden="true"></div>
+    <div class="stepper">
+      <button type="button" id="btnPrev" aria-label="Previous sheet">←</button>
+      <button type="button" id="btnOpen" aria-label="Open this sheet">Open</button>
+      <button type="button" id="btnNext" aria-label="Next sheet">→</button>
+    </div>
+  </div>
+
+  <div id="labels" aria-hidden="true"></div>
+
+  <aside id="sheet" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="sheetTitle">
+    <div class="sheet-bar">
+      <span class="sheet-col" id="sheetCol"></span>
+      <div class="sheet-ctl">
+        <button type="button" id="sheetPrev" aria-label="Previous">←</button>
+        <button type="button" id="sheetNext" aria-label="Next">→</button>
+        <button type="button" id="sheetClose" aria-label="Close">✕</button>
+      </div>
+    </div>
+    <div class="sheet-scroll" id="sheetBody"></div>
+  </aside>
+
+  <div id="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Map viewer">
+    <div class="lb-bar">
+      <span>Scroll or pinch to zoom · drag to pan · double-click to zoom in</span>
+      <div>
+        <button type="button" id="lbOut" aria-label="Zoom out">−</button>
+        <button type="button" id="lbIn" aria-label="Zoom in">+</button>
+        <a id="lbOpen" href="#" target="_blank" rel="noopener">Open image ↗</a>
+        <button type="button" id="lbClose" aria-label="Close">✕</button>
+      </div>
+    </div>
+    <div id="lbStage"><img id="lbImg" alt="Full-size map" draggable="false"></div>
+  </div>
+
+  <noscript><p style="padding:2rem;font-family:Georgia,serif;color:#fff">This view needs JavaScript. <a href="classic.html" style="color:#e3b35a">Open the classic view</a>.</p></noscript>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/orbit.js"></script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+BEGIN:VCARD
+VERSION:3.0
+FN:Kalid Hassen Yasin
+N:Yasin;Kalid;Hassen;;;
+ORG:Haramaya University
+TITLE:Lecturer & GIS/Remote Sensing Researcher
+EMAIL;TYPE=work:Kalid.hassen@haramaya.edu.et
+EMAIL;TYPE=home:kalidh84@gmail.com
+TEL;TYPE=cell:+251923328893
+TEL;TYPE=cell:+251941882888
+ADR;TYPE=home:;;A5 Addis Ababa – Metu Road;Addis Ababa;;1000;Ethiopia
+URL;TYPE=LinkedIn:https://www.linkedin.com/in/kalid-hassen-061a861a1
+URL;TYPE=ResearchGate:https://www.researchgate.net/profile/Kalid-Hassen?ev=hdr_xprf
+URL;TYPE=GitHub:https://github.com/Dodokal
+URL;TYPE=GoogleScholar:https://scholar.google.com/citations?user=sUibU4UAAAAJ&hl=en
+URL;TYPE=ORCID:https://orcid.org/0000-0001-6231-1312
+END:VCARD

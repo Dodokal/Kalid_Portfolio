@@ -1,0 +1,1457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kalid Hassen Yasin - Geospatial Data Scientist, Remote Sensing Expert & EMJM Copernicus Digital Earth Scholar">
+    <meta name="keywords" content="GIS, Remote Sensing, Machine Learning, Digital Earth, Copernicus, Geospatial Science">
+    <meta name="author" content="Kalid Hassen Yasin">
+    <title>Kalid Hassen Yasin | Geospatial Data Scientist</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌍</text></svg>">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/web3d.css">
+    <link rel="stylesheet" href="assets/css/classic-extra.css">
+</head>
+<body>
+    <!-- 3D background layer (UI only) -->
+    <canvas id="globe3d" aria-hidden="true"></canvas>
+    <div class="web3d-vignette" aria-hidden="true"></div>
+
+    <!-- ========== LOADING SCREEN ========== -->
+    <div class="loader" id="loader">
+        <div class="loader-content">
+            <div class="loader-globe">
+                <div class="globe-ring r1"></div>
+                <div class="globe-ring r2"></div>
+                <div class="globe-ring r3"></div>
+                <div class="globe-core"></div>
+            </div>
+            <p class="loader-text">Initializing Digital Earth...</p>
+            <div class="loader-bar"><div class="loader-progress"></div></div>
+        </div>
+    </div>
+
+    <!-- ========== NAVIGATION ========== -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="nav-logo">
+                <span class="logo-icon">🌍</span>
+                <span class="logo-text">KHY</span>
+            </a>
+            
+            <ul class="nav-menu" id="navMenu">
+                                <li><a href="#about" class="nav-link active">About</a></li>
+                <li><a href="#education" class="nav-link">Education</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#publications" class="nav-link">Publications</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#map-gallery" class="nav-link">Map Gallery</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#field-schools" class="nav-link">Field Schools</a></li>
+                <li><a href="#conferences" class="nav-link">Conferences</a></li>
+                <li><a href="#certificates" class="nav-link">Certificates</a></li>
+                <li><a href="https://giskitchn.blogspot.com/" target="_blank" class="nav-link blog-nav">🍳 GIS Kitchen</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li><a href="index.html" class="nav-link cde-nav orbit-nav">🛰️ 3D Orbit</a></li>
+            </ul>
+            
+            <a href="assets/kalid_hassen_yasin_cv.pdf" download class="nav-btn">
+                <i class="fas fa-download"></i>
+                <span>CV</span>
+            </a>
+            
+            <button class="nav-toggle" id="navToggle" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ========== HERO SECTION ========== -->
+    <section id="home" class="hero">
+        <div class="hero-bg">
+            <canvas id="starsCanvas"></canvas>
+            <div class="hero-gradient"></div>
+        </div>
+        
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="badge-dot"></span>
+                    <span>EMJM Copernicus Digital Earth Scholar 2025-2027</span>
+                </div>
+                
+                <h1 class="hero-title">
+                    <span class="title-greeting">Hello, I'm</span>
+                    <span class="title-name">Kalid Hassen Yasin</span>
+                </h1>
+                
+                <div class="hero-subtitle">
+                    <span class="typing-text" id="typingText">Geospatial Data Scientist</span>
+                    <span class="typing-cursor">|</span>
+                </div>
+                
+                <p class="hero-description">
+                    Transforming satellite imagery into actionable insights. Bridging Earth observation 
+                    and machine learning to solve environmental challenges.
+                </p>
+                
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">
+                        <span>Get in Touch</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="#publications" class="btn btn-secondary">
+                        <span>View Research</span>
+                        <i class="fas fa-book-open"></i>
+                    </a>
+                    <a href="index.html" class="btn btn-secondary">
+                        <span>3D Orbit</span>
+                        <i class="fas fa-satellite"></i>
+                    </a>
+                </div>
+                
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="15+">0</span>
+                        <span class="stat-label">Publications</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="40+">0</span>
+                        <span class="stat-label">Peer Reviews</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="30">0</span>
+                        <span class="stat-label">Certificates</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="4">0</span>
+                        <span class="stat-label">Years Experience</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hero-image">
+                <div class="image-wrapper">
+                    <div class="image-glow"></div>
+                    <div class="image-border"></div>
+                    <img src="assets/images/kalid_profile.jpg" alt="Kalid Hassen Yasin" class="profile-photo">
+                    <div class="image-orbit">
+                        <div class="orbit-dot"></div>
+                    </div>
+                </div>
+                <div class="floating-card card-1">
+                    <i class="fas fa-satellite"></i>
+                    <span>Remote Sensing</span>
+                </div>
+                <div class="floating-card card-2">
+                    <i class="fas fa-brain"></i>
+                    <span>Machine Learning</span>
+                </div>
+                <div class="floating-card card-3">
+                    <i class="fas fa-globe-africa"></i>
+                    <span>GIS Expert</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="hero-social">
+            <a href="https://www.linkedin.com/in/kalid-hassen-yasin-061a861a1/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://github.com/Dodokal" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://www.researchgate.net/profile/Kalid-Yasin?ev=hdr_xprf" target="_blank" aria-label="ResearchGate"><i class="fab fa-researchgate"></i></a>
+            <a href="https://scholar.google.com/citations?user=sUibU4UAAAAJ" target="_blank" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+            <a href="https://orcid.org/0000-0001-6231-1312" target="_blank" aria-label="ORCID"><i class="fab fa-orcid"></i></a>
+        </div>
+        
+        <div class="scroll-indicator">
+            <div class="mouse"><div class="wheel"></div></div>
+            <span>Scroll Down</span>
+        </div>
+    </section>
+
+    <!-- ========== ABOUT SECTION ========== -->
+    <section id="about" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag"><i class="fas fa-user"></i> Introduction</span>
+                <h2 class="section-title">About <span class="highlight">Me</span></h2>
+                <p class="section-subtitle">Passionate about using geospatial technology to understand and protect our planet</p>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-image">
+                    <div class="about-image-wrapper">
+                        <img src="assets/images/profile1.jpg" alt="Kalid Hassen Yasin">
+                        <div class="about-image-overlay"></div>
+                    </div>
+                    <div class="about-badge badge-1">
+                        <span class="badge-number">Geo-Vis</span>
+                        <span class="badge-text">Track</span>
+                    </div>
+                    <div class="about-badge badge-2">
+                        <i class="fas fa-award"></i>
+                        <span class="badge-text">EU Scholar</span>
+                    </div>
+                </div>
+                
+                <div class="about-text">
+                    <h3>Geospatial Data Scientist & Remote Sensing Specialist</h3>
+                    <p>
+                        I am a dedicated researcher and educator passionate about leveraging Earth observation 
+                        technologies to address environmental challenges. I lecture GIS and remote sensing at Haramaya University and serve as Co-PI and GIS / remote-sensing lead on an ESA / Future Earth project on smart cities and urban agriculture in eastern Ethiopia. I am completing the <strong>Erasmus Mundus Joint Master's in Copernicus Digital Earth</strong> (Paris Lodron University of Salzburg and Palacký University Olomouc).
+                    </p>
+                    <p>
+                        With a strong foundation in GIS, remote sensing, and machine learning, I specialize in 
+                        environmental modeling, species distribution analysis, and climate impact assessment. 
+                        My research has been published in leading journals including Nature Scientific Reports, 
+                        Journal of Environmental Management, and Journal of Hydrology.
+                    </p>
+                    
+                    <div class="about-highlights">
+                        <div class="highlight-item">
+                            <div class="highlight-icon"><i class="fas fa-microscope"></i></div>
+                            <div class="highlight-text">
+                                <h4>Research Focus</h4>
+                                <p>Environmental modeling & ML</p>
+                            </div>
+                        </div>
+                        <div class="highlight-item">
+                            <div class="highlight-icon"><i class="fas fa-university"></i></div>
+                            <div class="highlight-text">
+                                <h4>Academic Role</h4>
+                                <p>Lecturer at Haramaya University</p>
+                            </div>
+                        </div>
+                        <div class="highlight-item">
+                            <div class="highlight-icon"><i class="fas fa-map-marked-alt"></i></div>
+                            <div class="highlight-text">
+                                <h4>Location</h4>
+                                <p>Czech Republic (from Ethiopia)</p>
+                            </div>
+                        </div>
+                        <div class="highlight-item">
+                            <div class="highlight-icon"><i class="fas fa-globe"></i></div>
+                            <div class="highlight-text">
+                                <h4>Nationality</h4>
+                                <p>Ethiopian</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== EDUCATION SECTION ========== -->
+    <section id="education" class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag"><i class="fas fa-graduation-cap"></i> Academic Background</span>
+                <h2 class="section-title">My <span class="highlight">Education</span></h2>
+                <p class="section-subtitle">A journey of continuous learning across three continents</p>
+            </div>
+            
+            <div class="timeline">
+                <!-- EMJM CDE -->
+                <div class="timeline-item">
+                    <div class="timeline-marker current">
+                        <i class="fas fa-satellite"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-badge current">Currently Enrolled</div>
+                        <div class="timeline-logos">
+                            <img src="assets/logos/cde.png" alt="CDE">
+                            <img src="assets/logos/salzburg.png" alt="PLUS">
+                            <img src="assets/logos/upol.png" alt="UPOL">
+                        </div>
+                        <h3>MSc Copernicus Digital Earth (Geo-Vis) </h3>
+                        <h4>Erasmus Mundus Joint Master's Programme</h4>
+                        <div class="timeline-meta">
+                            <span><i class="fas fa-calendar-alt"></i> 2025 - 2027</span>
+                            <span><i class="fas fa-award"></i> Full EMJM+ Scholarship</span>
+                        </div>
+                        <p>Paris Lodron University of Salzburg, Austria • Palacký University Olomouc, Czech Republic · Geo-Visualization & Communication track</p>
+                    </div>
+                </div>
+                
+                <!-- Computer Science -->
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-badge ongoing">Completed</div>
+                        <div class="timeline-logos">
+                            <img src="assets/logos/uopeople.png" alt="UoPeople">
+                        </div>
+                        <h3>ASc Computer Science</h3>
+                        <h4>University of the People, USA (Online)</h4>
+                        <div class="timeline-meta">
+                            <span><i class="fas fa-calendar-alt"></i> 2023 - 2025</span>
+                            <span><i class="fas fa-star"></i> GPA: 3.25</span>
+                        </div>
+                        <p>Building strong programming foundations in Python, Java, R, and software engineering.</p>
+                    </div>
+                </div>
+                
+                <!-- MSc Remote Sensing -->
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <i class="fas fa-satellite-dish"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-badge completed">Completed</div>
+                        <div class="timeline-logos">
+                            <img src="assets/logos/ssgi.png" alt="SSGI">
+                            <img src="assets/logos/aau.png" alt="AAU">
+                        </div>
+                        <h3>MSc Remote Sensing</h3>
+                        <h4>Ethiopian Space Science & Geospatial Institute, AAU</h4>
+                        <div class="timeline-meta">
+                            <span><i class="fas fa-calendar-alt"></i> 2022 - 2024</span>
+                            <span><i class="fas fa-star"></i> GPA: 3.93 / 4.0</span>
+                        </div>
+                        <p>Thesis: "Characterizing and Modelling of The Spatiotemporal Trends of Rangelands as a Response to Prosopis Juliflora: A Case Study of the Middle Awash Basin, Ethiopia"</p>
+                    </div>
+                </div>
+                
+                <!-- BSc -->
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <i class="fas fa-map"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-badge completed">Completed</div>
+                        <div class="timeline-logos">
+                            <img src="assets/logos/haramaya.png" alt="Haramaya">
+                        </div>
+                        <h3>BSc Geo-Information Science</h3>
+                        <h4>Haramaya University, Ethiopia</h4>
+                        <div class="timeline-meta">
+                            <span><i class="fas fa-calendar-alt"></i> 2017 - 2021</span>
+                            <span><i class="fas fa-star"></i> GPA: 3.68 / 4.0</span>
+                        </div>
+                        <p>Graduated with Great Distinction. Foundation in GIS, cartography, and spatial analysis.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== SKILLS SECTION ========== -->
+    <section id="skills" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag"><i class="fas fa-tools"></i> Expertise</span>
+                <h2 class="section-title">Skills & <span class="highlight">Technologies</span></h2>
+                <p class="section-subtitle">Technical proficiencies built over years of research and practice</p>
+            </div>
+            
+            <div class="skills-wrapper">
+                <div class="skills-categories">
+                    <div class="skill-category">
+                        <div class="category-header">
+                            <i class="fas fa-satellite"></i>
+                            <h3>GIS & Remote Sensing</h3>
+                        </div>
+                        <div class="skill-bars">
+                            <div class="skill-bar">
+                                <div class="skill-info"><span>ArcGIS Pro</span><span>95%</span></div>
+                                <div class="skill-track"><div class="skill-fill" data-width="95"></div></div>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-info"><span>QGIS</span><span>95%</span></div>
+                                <div class="skill-track"><div class="skill-fill" data-width="95"></div></div>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-info"><span>Google Earth Engine</span><span>90%</span></div>
+                                <div class="skill-track"><div class="skill-fill" data-width="90"></div></div>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-info"><span>ERDAS IMAGINE</span><span>85%</span></div>
+                                <div class="skill-track"><div class="skill-fill" data-width="85"></div></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <div class="category-header">
+                            <i class="fas fa-code"></i>
+                            <h3>Programming</h3>
+                        </div>
+                        <div class="skill-bars">
+                            <div class="skill-bar">
+                                <div class="skill-info"><span>Python</span><span>90%</span></div>
+                                <div class="skill-track"><div class="skill-fill" data-width="90"></div></div>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-info"><span>R Programming</span><span>85%</span></div>
+                                <div class="skill-track"><div class="skill-fill" data-width="85"></div></div>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-info"><span>JavaScript</span><span>75%</span></div>
+                                <div class="skill-track"><div class="skill-fill" data-width="75"></div></div>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-info"><span>SQL</span><span>80%</span></div>
+                                <div class="skill-track"><div class="skill-fill" data-width="80"></div></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <div class="category-header">
+                            <i class="fas fa-brain"></i>
+                            <h3>Machine Learning</h3>
+                        </div>
+                        <div class="skill-bars">
+                            <div class="skill-bar">
+                                <div class="skill-info"><span>Random Forest / XGBoost</span><span>90%</span></div>
+                                <div class="skill-track"><div class="skill-fill" data-width="90"></div></div>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-info"><span>Deep Learning</span><span>75%</span></div>
+                                <div class="skill-track"><div class="skill-fill" data-width="75"></div></div>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-info"><span>Species Distribution Models</span><span>90%</span></div>
+                                <div class="skill-track"><div class="skill-fill" data-width="90"></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tech-stack">
+                    <h3>Tech Stack</h3>
+                    <div class="tech-grid">
+                        <div class="tech-item"><i class="fab fa-python"></i><span>Python</span></div>
+                        <div class="tech-item"><i class="fas fa-registered"></i><span>R</span></div>
+                        <div class="tech-item"><i class="fab fa-js-square"></i><span>JavaScript</span></div>
+                        <div class="tech-item"><i class="fas fa-database"></i><span>PostgreSQL</span></div>
+                        <div class="tech-item"><i class="fas fa-globe"></i><span>GEE</span></div>
+                        <div class="tech-item"><i class="fas fa-map-marked-alt"></i><span>ArcGIS</span></div>
+                        <div class="tech-item"><i class="fas fa-layer-group"></i><span>QGIS</span></div>
+                        <div class="tech-item"><i class="fas fa-satellite"></i><span>ERDAS</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== PUBLICATIONS SECTION ========== -->
+    <section id="publications" class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag"><i class="fas fa-book"></i> Research Output</span>
+                <h2 class="section-title">My <span class="highlight">Publications</span></h2>
+                <p class="section-subtitle">Peer-reviewed research in leading international journals</p>
+            </div>
+            
+            <div class="pub-stats">
+                <div class="pub-stat">
+                    <span class="pub-number">15+</span>
+                    <span class="pub-label">Publications</span>
+                </div>
+                <div class="pub-stat">
+                    <span class="pub-number">40+</span>
+                    <span class="pub-label">Peer Reviews</span>
+                </div>
+                <div class="pub-stat">
+                    <span class="pub-number">10+</span>
+                    <span class="pub-label">Journals</span>
+                </div>
+            </div>
+            
+            <div class="publications-grid">
+                <article class="pub-card">
+                    <span class="pub-year">2026</span>
+                    <span class="pub-journal">Scientific Reports</span>
+                    <h3>An Integrated ArcGIS Python Toolbox for SCS-CN Event Runoff Estimation and Flood Screening in Data-Scarce Ethiopian Basins</h3>
+                    <p class="pub-authors">Yasin, K.H., Yuya, B.A., Muir, F., et al.</p>
+                    <div class="pub-tags"><span>Hydrology</span><span>Flood</span><span>ArcPy</span></div>
+                    <a href="https://doi.org/10.1038/s41598-026-75406-2" target="_blank" class="pub-link"><i class="fas fa-external-link-alt"></i></a>
+                </article>
+
+                <article class="pub-card">
+                    <span class="pub-year">2026</span>
+                    <span class="pub-journal">Ecology and Evolution</span>
+                    <h3>Machine Learning and Geospatial Modeling of Climate Change Impacts on Ethiopian Honeybees for Conservation and Resilient Agriculture</h3>
+                    <p class="pub-authors">Tulu, D., Yasin, K.H., Gelete, T.B., Ahmed, B., Belina, D.</p>
+                    <div class="pub-tags"><span>ML</span><span>SDM</span><span>Climate</span></div>
+                    <a href="https://doi.org/10.1002/ece3.73842" target="_blank" class="pub-link"><i class="fas fa-external-link-alt"></i></a>
+                </article>
+
+                <article class="pub-card">
+                    <span class="pub-year">2026</span>
+                    <span class="pub-journal">Remote Sensing Applications: Society & Environment</span>
+                    <h3>Random Forest-Based Species Distribution Modeling Reveals Intensifying Multi-Species Invasion Risks of Alien Plants in Ethiopia under Climate Change</h3>
+                    <p class="pub-authors">Yasin, K.H., Tulu, D., Gelete, T.B., Yuya, B.A., Iguala, A.D., Tadesse, K.A., Kebede, E.</p>
+                    <div class="pub-tags"><span>Invasive Species</span><span>SDM</span><span>Climate</span></div>
+                    <a href="https://doi.org/10.1016/j.rsase.2026.101869" target="_blank" class="pub-link"><i class="fas fa-external-link-alt"></i></a>
+                </article>
+
+                <article class="pub-card">
+                    <span class="pub-year">2025</span>
+                    <span class="pub-journal">J. Hydrology: Regional Studies</span>
+                    <h3>Advanced Geospatial and Machine Learning Models Identify Groundwater Potential and Reveal Storage Dynamics in Ethiopia's Abbay River Basin</h3>
+                    <p class="pub-authors">Yasin, K.H., Gelete, T.B., Kebede, E., Iguala, A.D., Abdo, M.Y.</p>
+                    <div class="pub-tags"><span>ML</span><span>Hydrology</span><span>GIS</span></div>
+                    <a href="https://doi.org/10.1016/j.ejrh.2025.102762" target="_blank" class="pub-link"><i class="fas fa-external-link-alt"></i></a>
+                </article>
+                
+                <article class="pub-card">
+                    <span class="pub-year">2025</span>
+                    <span class="pub-journal">Scientific Reports (Nature)</span>
+                    <h3>Machine Learning Predictions of Climate Change Effects on Nearly Threatened Bird Species (Crithagra xantholaema) Habitat in Ethiopia for Conservation Strategies</h3>
+                    <p class="pub-authors">Gelete, T.B., Tulu, D., Yasin, K.H., et al.</p>
+                    <div class="pub-tags"><span>SDM</span><span>Conservation</span><span>Climate</span></div>
+                    <a href="https://doi.org/10.1038/s41598-025-20952-4" target="_blank" class="pub-link"><i class="fas fa-external-link-alt"></i></a>
+                </article>
+                
+                <article class="pub-card">
+                    <span class="pub-year">2025</span>
+                    <span class="pub-journal">MethodsX</span>
+                    <h3>Methodological Integration of Machine Learning and Geospatial Analysis for PM10 Pollution Mapping</h3>
+                    <p class="pub-authors">Yasin, K.H., Yasin, M.I., Iguala, A.D., Gelete, T.B., Kebede, E.</p>
+                    <div class="pub-tags"><span>Air Quality</span><span>ML</span></div>
+                    <a href="https://doi.org/10.1016/j.mex.2025.103322" target="_blank" class="pub-link"><i class="fas fa-external-link-alt"></i></a>
+                </article>
+                
+                <article class="pub-card">
+                    <span class="pub-year">2025</span>
+                    <span class="pub-journal">Discover Applied Sciences</span>
+                    <h3>Predictive Machine Learning and Geospatial Modeling Reveal PM10 Hotspots and Guide Targeted Air Pollution Interventions in Addis Ababa, Ethiopia</h3>
+                    <p class="pub-authors">Yasin, K.H., Yasin, M.I., Iguala, A.D., Gelete, T.B., Tulu, D., Kebede, E.</p>
+                    <div class="pub-tags"><span>Air Quality</span><span>Urban</span></div>
+                    <a href="https://doi.org/10.1007/s42452-025-06723-w" target="_blank" class="pub-link"><i class="fas fa-external-link-alt"></i></a>
+                </article>
+                
+                <article class="pub-card">
+                    <span class="pub-year">2025</span>
+                    <span class="pub-journal">Discover Sustainability</span>
+                    <h3>Spatiotemporal Analysis of Urban Expansion and Its Impact on Farmlands in the Central Ethiopia Metropolitan Area</h3>
+                    <p class="pub-authors">Yasin, K.H., Iguala, A.D., Gelete, T.B.</p>
+                    <div class="pub-tags"><span>Urban</span><span>Change Detection</span></div>
+                    <a href="https://doi.org/10.1007/s43621-024-00749-7" target="_blank" class="pub-link"><i class="fas fa-external-link-alt"></i></a>
+                </article>
+                
+                <article class="pub-card">
+                    <span class="pub-year">2024</span>
+                    <span class="pub-journal">J. Environmental Management</span>
+                    <h3>Characterizing and Modeling Spatiotemporal Trends in Rangelands: Prosopis juliflora Impact in Middle Awash Basin, Ethiopia</h3>
+                    <p class="pub-authors">Yasin, K.H.</p>
+                    <div class="pub-tags"><span>Invasive Species</span><span>SDM</span></div>
+                    <a href="https://doi.org/10.1016/j.jenvman.2024.123336" target="_blank" class="pub-link"><i class="fas fa-external-link-alt"></i></a>
+                </article>
+                
+                <article class="pub-card">
+                    <span class="pub-year">2024</span>
+                    <span class="pub-journal">Frontiers in Environmental Science</span>
+                    <h3>Integrated Machine Learning and Geospatial Analysis Enhanced Gully Erosion Susceptibility Modeling in the Erer Watershed in Eastern Ethiopia</h3>
+                    <p class="pub-authors">Gelete, T.B., Pasala, P., Abay, N.G., Woldemariam, G.W., Yasin, K.H., et al.</p>
+                    <div class="pub-tags"><span>Erosion</span><span>ML</span></div>
+                    <a href="https://doi.org/10.3389/fenvs.2024.1410741" target="_blank" class="pub-link"><i class="fas fa-external-link-alt"></i></a>
+                </article>
+                
+                <article class="pub-card">
+                    <span class="pub-year">2024</span>
+                    <span class="pub-journal">MethodsX</span>
+                    <h3>Optimal Interpolation Approach for Groundwater Depth Estimation</h3>
+                    <p class="pub-authors">Yasin, K.H., Gelete, T.B., Iguala, A.D., Kebede, E.</p>
+                    <div class="pub-tags"><span>Hydrology</span><span>Methods</span></div>
+                    <a href="https://doi.org/10.1016/j.mex.2024.102916" target="_blank" class="pub-link"><i class="fas fa-external-link-alt"></i></a>
+                </article>
+                
+                <article class="pub-card">
+                    <span class="pub-year">2024</span>
+                    <span class="pub-journal">Springer Geography</span>
+                    <h3>Soil Erosion Risk Assessment—A Key to Conservation Planning in the Ethiopian Highland in East Hararghe</h3>
+                    <p class="pub-authors">Woldemariam, G.W., Awoke, B.G., Yasin, K.H.</p>
+                    <div class="pub-tags"><span>Erosion</span><span>Conservation</span></div>
+                    <a href="https://doi.org/10.1007/978-3-031-60251-1_8" target="_blank" class="pub-link"><i class="fas fa-external-link-alt"></i></a>
+                </article>
+                
+                <article class="pub-card">
+                    <span class="pub-year">2023</span>
+                    <span class="pub-journal">KN - J. Cartography & Geographic Information</span>
+                    <h3>Abattoir Site Suitability Modeling Using GIS and Multi-Criteria Evaluation – A Case Study of Dire Dawa City, Ethiopia</h3>
+                    <p class="pub-authors">Yasin, K.H., Weldemariam, E.C., Woldemariam, G.W., et al.</p>
+                    <div class="pub-tags"><span>GIS</span><span>MCDA</span></div>
+                    <a href="https://doi.org/10.1007/s42489-023-00134-w" target="_blank" class="pub-link"><i class="fas fa-external-link-alt"></i></a>
+                </article>
+                
+                <article class="pub-card">
+                    <span class="pub-year">2023</span>
+                    <span class="pub-journal">Heliyon</span>
+                    <h3>GIS-Based Ecotourism Potentiality Mapping in the East Hararghe Zone, Ethiopia</h3>
+                    <p class="pub-authors">Yasin, K.H., Woldemariam, G.W.</p>
+                    <div class="pub-tags"><span>Ecotourism</span><span>GIS</span></div>
+                    <a href="https://doi.org/10.1016/j.heliyon.2023.e18567" target="_blank" class="pub-link"><i class="fas fa-external-link-alt"></i></a>
+                </article>
+                
+                <article class="pub-card">
+                    <span class="pub-year">2023</span>
+                    <span class="pub-journal">Geosciences</span>
+                    <h3>Water Erosion Risk Assessment for Conservation Planning in the East Hararghe Zone, Ethiopia</h3>
+                    <p class="pub-authors">Woldemariam, G.W., Yasin, K.H., Iguala, A.D.</p>
+                    <div class="pub-tags"><span>Erosion</span><span>Conservation</span></div>
+                    <a href="https://doi.org/10.3390/geosciences13060184" target="_blank" class="pub-link"><i class="fas fa-external-link-alt"></i></a>
+                </article>
+            </div>
+            
+            <div class="pub-cta">
+                <a href="https://scholar.google.com/citations?user=sUibU4UAAAAJ" target="_blank" class="btn btn-primary">
+                    <i class="fas fa-external-link-alt"></i>
+                    <span>View All on Google Scholar</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== INTERNATIONAL PROJECTS SECTION ========== -->
+    <section id="projects" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag"><i class="fas fa-globe-europe"></i> Funded Research</span>
+                <h2 class="section-title">International <span class="highlight">Projects</span></h2>
+                <p class="section-subtitle">Competitively funded research initiatives</p>
+            </div>
+            
+            <div class="project-featured">
+                <div class="project-badge">
+                    <img src="assets/logos/esafa.png" alt="EU" class="project-funder-logo">
+                    <span class="funding-amount">€25,000</span>
+                </div>
+                <div class="project-content">
+                    <div class="project-header">
+                        <span class="project-role">Co-Principal Investigator (CO-PI)</span>
+                        <div class="project-funders">
+                            <span><i class="fas fa-satellite"></i> ESA (European Space Agency)</span>
+                            <span><i class="fas fa-globe"></i> Future Earth</span>
+                        </div>
+                    </div>
+                    <h3><a class="project-title-link" href="https://east-ethiopia-flood-dashboard.netlify.app/" target="_blank" rel="noopener" title="Open the East Ethiopia Flood Dashboard">Building Smart Cities and Resilient Urban Agriculture in East Africa through Earth Observation Data<i class="fas fa-arrow-up-right-from-square"></i></a></h3>
+                    <p class="project-description">
+                        This international research initiative leverages Earth observation data from ESA's Copernicus programme 
+                        to develop smart city solutions and enhance urban agriculture resilience across East Africa. The project 
+                        integrates satellite imagery, machine learning, and geospatial analysis to address food security and 
+                        sustainable urban development challenges.
+                    </p>
+                    <div class="project-highlights">
+                        <div class="ph-item">
+                            <i class="fas fa-map-marked-alt"></i>
+                            <span>East Africa Region</span>
+                        </div>
+                        <div class="ph-item">
+                            <i class="fas fa-satellite-dish"></i>
+                            <span>Earth Observation</span>
+                        </div>
+                        <div class="ph-item">
+                            <i class="fas fa-city"></i>
+                            <span>Smart Cities</span>
+                        </div>
+                        <div class="ph-item">
+                            <i class="fas fa-seedling"></i>
+                            <span>Urban Agriculture</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== MAP GALLERY SECTION ========== -->
+    <section id="map-gallery" class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag"><i class="fas fa-map"></i> Cartography</span>
+                <h2 class="section-title">Map <span class="highlight">Gallery</span></h2>
+                <p class="section-subtitle">Printed maps, posters and interactive web maps</p>
+            </div>
+            <div class="mg-filters">
+                <button class="filter-btn mg-filter active" data-kind="all">All</button>
+                <button class="filter-btn mg-filter" data-kind="print">Print maps &amp; posters</button>
+                <button class="filter-btn mg-filter" data-kind="web">Web maps &amp; StoryMaps</button>
+            </div>
+            <div class="mg-grid">
+                <article class="mg-card mg-print" data-kind="print">
+                    <div class="mg-media mg-zoom" data-src="assets/maps/yasin_sdg02_poster.jpg"><img src="assets/maps/thumb_yasin_sdg02_poster.jpg" alt="Where Hunger Concentrates" loading="lazy"><span class="mg-badge">Poster · A2</span></div>
+                    <div class="mg-body">
+                        <h4>Where Hunger Concentrates</h4>
+                        <p class="mg-meta">SDG 2 Zero Hunger · acute food insecurity in Ethiopia</p>
+                        <p class="mg-text">A thematic poster on SDG 2 target 2.1: an estimated 11.6 million people acutely food insecure across Ethiopia’s 14 regions and chartered cities. Proportional symbols carry the number of food-insecure people; companion pie and bar maps show the share living in Stressed and Crisis phases.</p>
+                        <div class="mg-actions"><button type="button" class="mg-btn mg-zoom" data-src="assets/maps/yasin_sdg02_poster.jpg"><i class="fas fa-magnifying-glass-plus"></i> View map</button></div>
+                    </div>
+                </article>
+                <article class="mg-card mg-print" data-kind="print">
+                    <div class="mg-media mg-zoom" data-src="assets/maps/sdg2_eth_map.jpg"><img src="assets/maps/thumb_sdg2_eth_map.jpg" alt="Ethiopia Food Security Analysis" loading="lazy"><span class="mg-badge">Map dashboard</span></div>
+                    <div class="mg-body">
+                        <h4>Ethiopia Food Security Analysis</h4>
+                        <p class="mg-meta">IPC acute food insecurity · 1,141 woredas</p>
+                        <p class="mg-text">A dashboard-style map of IPC near-term projections (October 2025 – January 2026) for all 1,141 woredas: Minimal, Stressed and Crisis phases, with regional breakdowns, crisis hotspots and a classification key.</p>
+                        <div class="mg-actions"><button type="button" class="mg-btn mg-zoom" data-src="assets/maps/sdg2_eth_map.jpg"><i class="fas fa-magnifying-glass-plus"></i> View map</button></div>
+                    </div>
+                </article>
+                <article class="mg-card mg-print" data-kind="print">
+                    <div class="mg-media mg-zoom" data-src="assets/maps/xgtc2026_foodsecurity_popr_yasin.jpg"><img src="assets/maps/thumb_xgtc2026_foodsecurity_popr_yasin.jpg" alt="Ethiopia, Redrawn by Food Security" loading="lazy"><span class="mg-badge">Cartogram</span></div>
+                    <div class="mg-body">
+                        <h4>Ethiopia, Redrawn by Food Security</h4>
+                        <p class="mg-meta">Diffusion cartogram of acutely food-insecure people</p>
+                        <p class="mg-text">Regions are resized by the estimated number of people in IPC Phase 1–3 (Gastner & Newman 2004 diffusion cartogram), with the true-shape map as an inset in the same colours. Oromia (3,355 thousand), Amhara (2,272) and Somali (2,099) dominate.</p>
+                        <div class="mg-actions"><button type="button" class="mg-btn mg-zoom" data-src="assets/maps/xgtc2026_foodsecurity_popr_yasin.jpg"><i class="fas fa-magnifying-glass-plus"></i> View map</button></div>
+                    </div>
+                </article>
+                <article class="mg-card mg-print" data-kind="print">
+                    <div class="mg-media mg-zoom" data-src="assets/maps/xgpg26_topographic_kalid.jpg"><img src="assets/maps/thumb_xgpg26_topographic_kalid.jpg" alt="Addis Ababa — City Centre" loading="lazy"><span class="mg-badge">Topographic · 1:10 000</span></div>
+                    <div class="mg-body">
+                        <h4>Addis Ababa — City Centre</h4>
+                        <p class="mg-meta">Topographic map, A1</p>
+                        <p class="mg-text">A 1:10 000 topographic map of central Addis Ababa: sub-city boundaries, a full road hierarchy, light-rail lines, built-up and land-use classes, vegetation and points of interest, with a locator map and a complete legend.</p>
+                        <div class="mg-actions"><button type="button" class="mg-btn mg-zoom" data-src="assets/maps/xgpg26_topographic_kalid.jpg"><i class="fas fa-magnifying-glass-plus"></i> View map</button></div>
+                    </div>
+                </article>
+                <article class="mg-card mg-print" data-kind="print">
+                    <div class="mg-media mg-zoom" data-src="assets/maps/xgtc2026_choropleth_kalid.jpg"><img src="assets/maps/thumb_xgtc2026_choropleth_kalid.jpg" alt="Marriages and Divorces in Czechia" loading="lazy"><span class="mg-badge">Bivariate choropleth</span></div>
+                    <div class="mg-body">
+                        <h4>Marriages and Divorces in Czechia</h4>
+                        <p class="mg-meta">Per 1,000 inhabitants, by ORP municipality</p>
+                        <p class="mg-text">A 3 × 3 bivariate choropleth combining marriage and divorce rates for municipalities with extended powers (ORP), with a how-to-read legend and a companion scatterplot of the same ORPs.</p>
+                        <div class="mg-actions"><button type="button" class="mg-btn mg-zoom" data-src="assets/maps/xgtc2026_choropleth_kalid.jpg"><i class="fas fa-magnifying-glass-plus"></i> View map</button></div>
+                    </div>
+                </article>
+                <article class="mg-card mg-print" data-kind="print">
+                    <div class="mg-media mg-zoom" data-src="assets/maps/xgtc2026_transport_yasin.jpg"><img src="assets/maps/thumb_xgtc2026_transport_yasin.jpg" alt="Transportation Network of Czechia" loading="lazy"><span class="mg-badge">Reference · 1:1 300 000</span></div>
+                    <div class="mg-body">
+                        <h4>Transportation Network of Czechia</h4>
+                        <p class="mg-meta">Roads, railways and airports</p>
+                        <p class="mg-text">Roads by class, railways by electrification, gauge and number of tracks, and airports by type, over regional (kraj) boundaries.</p>
+                        <div class="mg-actions"><button type="button" class="mg-btn mg-zoom" data-src="assets/maps/xgtc2026_transport_yasin.jpg"><i class="fas fa-magnifying-glass-plus"></i> View map</button></div>
+                    </div>
+                </article>
+                <article class="mg-card mg-print" data-kind="print">
+                    <div class="mg-media mg-zoom" data-src="assets/maps/yasin_dtp.jpg"><img src="assets/maps/thumb_yasin_dtp.jpg" alt="Central Europe" loading="lazy"><span class="mg-badge">Reference · 1:4 000 000</span></div>
+                    <div class="mg-body">
+                        <h4>Central Europe</h4>
+                        <p class="mg-meta">Physical–political reference map</p>
+                        <p class="mg-text">A small-scale reference map with shaded relief, rivers, lakes, borders and a city-size hierarchy. Data: Natural Earth; ETRS89 / LAEA Europe.</p>
+                        <div class="mg-actions"><button type="button" class="mg-btn mg-zoom" data-src="assets/maps/yasin_dtp.jpg"><i class="fas fa-magnifying-glass-plus"></i> View map</button></div>
+                    </div>
+                </article>
+                <article class="mg-card mg-web" data-kind="web">
+                    <div class="mg-media"><div class="mg-symbol"><i class="fas fa-wheat-awn"></i></div><span class="mg-badge">Web map</span></div>
+                    <div class="mg-body">
+                        <h4>Ethiopia Food Security — Interactive Dashboard</h4>
+                        <p class="mg-meta">IPC projections for 1,141 woredas</p>
+                        <p class="mg-text">An interactive web dashboard of IPC acute food-insecurity projections (October 2025 – January 2026): woreda search, key statistics, regional rankings by crisis level and switchable basemaps.</p>
+                        <div class="mg-actions"><a class="mg-btn" href="https://bright-parfait-4e9b49.netlify.app/" target="_blank" rel="noopener"><i class="fas fa-up-right-from-square"></i> Open web map</a></div>
+                    </div>
+                </article>
+                <article class="mg-card mg-web" data-kind="web">
+                    <div class="mg-media"><div class="mg-symbol"><i class="fas fa-earth-africa"></i></div><span class="mg-badge">StoryMap</span></div>
+                    <div class="mg-body">
+                        <h4>Food Security Crisis Hotspots in Ethiopia</h4>
+                        <p class="mg-meta">Bivariate spatial analysis at woreda level</p>
+                        <p class="mg-text">A bivariate spatial analysis of IPC food-insecurity clustering at district (woreda) level.</p>
+                        <div class="mg-actions"><a class="mg-btn" href="https://storymaps.arcgis.com/stories/53f103c98c4e4860968afcb4d18d2756" target="_blank" rel="noopener"><i class="fas fa-up-right-from-square"></i> Open StoryMap</a></div>
+                    </div>
+                </article>
+                <article class="mg-card mg-web" data-kind="web">
+                    <div class="mg-media"><div class="mg-symbol"><i class="fas fa-basket-shopping"></i></div><span class="mg-badge">StoryMap</span></div>
+                    <div class="mg-body">
+                        <h4>Where Is SNAP Participation Concentrated, and Is It Changing?</h4>
+                        <p class="mg-meta">Contiguous United States, 2010 – 2019</p>
+                        <p class="mg-text">Hot spot, outlier and emerging hot spot analysis of county-level SNAP participation rates across the contiguous United States, 2010 – 2019.</p>
+                        <div class="mg-actions"><a class="mg-btn" href="https://storymaps.arcgis.com/stories/37d0970345d34edba44f0ccc4b63c862" target="_blank" rel="noopener"><i class="fas fa-up-right-from-square"></i> Open StoryMap</a></div>
+                    </div>
+                </article>
+                <article class="mg-card mg-web" data-kind="web">
+                    <div class="mg-media"><img src="assets/images/tondo_manila_study_area.jpg" alt="Urban Heat Exposure in Tondo, Manila" loading="lazy"><span class="mg-badge">StoryMap</span></div>
+                    <div class="mg-body">
+                        <h4>Urban Heat Exposure in Tondo, Manila</h4>
+                        <p class="mg-meta">Internship · CD Laboratory GEOHUM with MSF</p>
+                        <p class="mg-text">Where heat concentrates inside one of the densest urban districts anywhere, at neighbourhood detail and seasonal frequency, by fusing daily coarse and fine-resolution thermal satellite data.</p>
+                        <div class="mg-actions"><a class="mg-btn" href="https://storymaps.arcgis.com/stories/c3deab0eecda4156877de0046094fb68" target="_blank" rel="noopener"><i class="fas fa-up-right-from-square"></i> Open StoryMap</a></div>
+                    </div>
+                </article>
+                <article class="mg-card mg-web" data-kind="web">
+                    <div class="mg-media"><img src="assets/images/bip_romania_drone.jpg" alt="Drones in the Carpathians" loading="lazy"><span class="mg-badge">StoryMap</span></div>
+                    <div class="mg-body">
+                        <h4>Drones in the Carpathians</h4>
+                        <p class="mg-meta">CIVIS BIP field week, Romania</p>
+                        <p class="mg-text">A field story from the CIVIS Blended Intensive Programme on drones in the environmental sciences, Romanian Carpathians.</p>
+                        <div class="mg-actions"><a class="mg-btn" href="https://storymaps.arcgis.com/stories/58f949a7fdbe47adabdf9d03f1d09d62" target="_blank" rel="noopener"><i class="fas fa-up-right-from-square"></i> Open StoryMap</a></div>
+                    </div>
+                </article>
+                <article class="mg-card mg-web" data-kind="web">
+                    <div class="mg-media"><div class="mg-symbol"><i class="fas fa-crow"></i></div><span class="mg-badge">StoryMap · team</span></div>
+                    <div class="mg-body">
+                        <h4>Spot the Bird</h4>
+                        <p class="mg-meta">Where to see the “Bird of the Year”</p>
+                        <p class="mg-text">A team StoryMap (Timotej, Kalid, Tanmay, Adina) showing where to go to see the Bird of the Year.</p>
+                        <div class="mg-actions"><a class="mg-btn" href="https://storymaps.arcgis.com/stories/1ed01624c9f045ed98067fc517c40f98" target="_blank" rel="noopener"><i class="fas fa-up-right-from-square"></i> Open StoryMap</a></div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== EXPERIENCE SECTION ========== -->
+    <section id="experience" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag"><i class="fas fa-briefcase"></i> Career</span>
+                <h2 class="section-title">Work <span class="highlight">Experience</span></h2>
+                <p class="section-subtitle">Professional journey in academia and industry</p>
+            </div>
+            
+            <div class="experience-grid">
+                <div class="exp-card">
+                    <div class="exp-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+                    <div class="exp-content">
+                        <div class="exp-header">
+                            <h3>Lecturer & Researcher</h3>
+                            <span class="exp-company">Haramaya University</span>
+                        </div>
+                        <span class="exp-period"><i class="fas fa-calendar"></i> March 2021 - Present</span>
+                        <p>Teaching GIS, remote sensing, and geodesy courses. Conducting research in environmental modeling. Supervising undergraduate thesis projects.</p>
+                        <div class="exp-tags"><span>Teaching</span><span>Research</span><span>GIS</span></div>
+                    </div>
+                </div>
+
+                <div class="exp-card">
+                    <div class="exp-icon"><i class="fas fa-satellite-dish"></i></div>
+                    <div class="exp-content">
+                        <div class="exp-header">
+                            <h3>Co-Principal Investigator &amp; GIS / RS Lead</h3>
+                            <span class="exp-company">ESA · Future Earth project</span>
+                        </div>
+                        <span class="exp-period"><i class="fas fa-calendar"></i> Smart cities &amp; urban agriculture, eastern Ethiopia</span>
+                        <p>Leads the GIS and remote-sensing work of a €25,000 ESA / Future Earth project: flood susceptibility, groundwater potential and runoff modelling for eastern Ethiopian cities, and the project's web dashboard.</p>
+                        <div class="exp-tags"><span>Project leadership</span><span>Earth Observation</span></div>
+                    </div>
+                </div>
+
+                <div class="exp-card">
+                    <div class="exp-icon"><i class="fas fa-temperature-high"></i></div>
+                    <div class="exp-content">
+                        <div class="exp-header">
+                            <h3>Research Intern</h3>
+                            <span class="exp-company">Christian Doppler Laboratory GEOHUM, Z_GIS, Paris Lodron University of Salzburg · with Médecins Sans Frontières</span>
+                        </div>
+                        <span class="exp-period"><i class="fas fa-calendar"></i> 2026</span>
+                        <p>Mapped urban heat exposure in Tondo, Manila for MSF at neighbourhood detail and seasonal frequency, fusing daily coarse (MODIS) and fine-resolution (Landsat) thermal satellite data. <a href="https://storymaps.arcgis.com/stories/c3deab0eecda4156877de0046094fb68" target="_blank" rel="noopener" class="exp-link">Story map ↗</a></p>
+                        <div class="exp-tags"><span>Thermal RS</span><span>Data Fusion</span><span>Humanitarian</span></div>
+                    </div>
+                </div>
+                
+                <div class="exp-card">
+                    <div class="exp-icon"><i class="fas fa-chart-line"></i></div>
+                    <div class="exp-content">
+                        <div class="exp-header">
+                            <h3>Technical Consultant</h3>
+                            <span class="exp-company">Oromia Chamber of Commerce</span>
+                        </div>
+                        <span class="exp-period"><i class="fas fa-calendar"></i> Aug 2024 - Feb 2025</span>
+                        <p>GIS consulting for economic development initiatives. Spatial analysis for regional planning and investment mapping.</p>
+                        <div class="exp-tags"><span>Consulting</span><span>Spatial Analysis</span></div>
+                    </div>
+                </div>
+                
+                <div class="exp-card">
+                    <div class="exp-icon"><i class="fas fa-map-marked-alt"></i></div>
+                    <div class="exp-content">
+                        <div class="exp-header">
+                            <h3>GIS Consultant</h3>
+                            <span class="exp-company">Maya Town Land Administration</span>
+                        </div>
+                        <span class="exp-period"><i class="fas fa-calendar"></i> Oct 2021 - Jul 2022</span>
+                        <p>Urban cadastral mapping projects. Digital land registration systems and spatial databases for property management.</p>
+                        <div class="exp-tags"><span>Cadastral</span><span>Land Admin</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FIELD SCHOOLS SECTION ========== -->
+    <section id="field-schools" class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag"><i class="fas fa-graduation-cap"></i> Beyond the Classroom</span>
+                <h2 class="section-title">International Summer School, <span class="highlight">BIP &amp; Excursions</span></h2>
+                <p class="section-subtitle">Hands-on, credit-bearing experiences beyond the classroom</p>
+            </div>
+            <div class="ss-grid">
+
+                    <!-- Card 1: Copernicus Hubs & Institutions (Vienna excursion) -->
+                    <article class="ss-card">
+                        <div class="ss-card-media">
+                            <img src="assets/images/copernicus_hubs_vienna.jpg" alt="UN Office at Vienna (UNOV) during the Copernicus Hubs and Institutions excursion" loading="lazy">
+                            <span class="ss-badge"><i class="fas fa-satellite"></i> Excursion · Vienna 2026</span>
+                        </div>
+                        <div class="ss-card-body">
+                            <h4>Copernicus Hubs &amp; Institutions</h4>
+                            <p class="ss-text">On 26 May 2026 our CDE cohort travelled from Salzburg to Vienna to follow the Earth-observation pipeline end to end — the Earth Observation Data Centre (EODC) with Austria&#39;s national supercomputing (VSC &amp; MUSICA) in the morning, then UNOOSA and the UN-SPIDER disaster-response programme at the UN Office at Vienna. A full day on turning Copernicus data into knowledge, and knowledge into action. <a class="ss-viewmore" href="https://drive.google.com/file/d/1ucfw9_GZlaS3BguQCuDni7VdICm71rOa/view?usp=sharing" target="_blank" rel="noopener">View more <i class="fas fa-arrow-right"></i></a></p>
+                        </div>
+                    </article>
+
+                    <!-- Card 2: ISSonVIS 2026 (click -> full report modal) -->
+                    <article class="ss-card ss-card-clickable" role="button" tabindex="0" data-modal="issonvis-modal" aria-label="Open ISSonVIS 2026 full report">
+                        <div class="ss-card-media ss-card-media-issonvis">
+                            <span class="ss-emoji">🗺️</span>
+                            <span class="ss-badge ss-badge-alt"><i class="fas fa-award"></i> Summer School · 3 ECTS</span>
+                        </div>
+                        <div class="ss-card-body">
+                            <h4>ISSonVIS 2026 — Emotions and Map</h4>
+                            <p class="ss-text">International Summer School on the affective dimension of visualization, hosted online by the Department of Geoinformatics, Palacký University Olomouc (1–2 April 2026). Two days on emotions, perception, and where cartography is heading. <span class="ss-viewmore ss-viewmore-btn">View full report <i class="fas fa-up-right-from-square"></i></span></p>
+                        </div>
+                    </article>
+
+                    <!-- Card 3: Blended Intensive Programme III (BIP) — Drones, Romania -->
+                    <article class="ss-card">
+                        <div class="ss-card-media">
+                            <img src="assets/images/bip_romania_drone.jpg" alt="Blended Intensive Programme on drones in environmental sciences, Romania — Brașov, Prejmer fortified church and Ialomița Cave" loading="lazy">
+                            <span class="ss-badge"><i class="fas fa-helicopter"></i> BIP · Romania 2026</span>
+                        </div>
+                        <div class="ss-card-body">
+                            <h4>Blended Intensive Programme III — Drones in Environmental Sciences</h4>
+                            <p class="ss-text">A CIVIS Blended Intensive Programme on the use of drones (UAVs) in the environmental sciences, with the on-site week based in Sinaia, in the Romanian Carpathians. Alongside flight planning, photogrammetry and drone-based environmental monitoring, the surrounding Transylvania region — Brașov's Council Square, the UNESCO-listed Prejmer fortified church and the Ialomița Cave — became an open-air field laboratory. The programme blended online preparation with intensive hands-on fieldwork, and produced both a personal field blog and a technical group IMRaD report. <a class="ss-viewmore" href="https://arcg.is/0vLm8u0" target="_blank" rel="noopener">See more <i class="fas fa-arrow-right"></i></a></p>
+                        </div>
+                    </article>
+
+                    <!-- Card 4: Internship — CD Laboratory GEOHUM (Z_GIS) with MSF -->
+                    <article class="ss-card">
+                        <div class="ss-card-media">
+                            <img src="assets/images/tondo_manila_study_area.jpg" alt="Satellite view of the Tondo district study area, Manila, outlined in blue against Manila Bay" loading="lazy">
+                            <span class="ss-badge ss-badge-heat"><i class="fas fa-temperature-high"></i> Internship · Z_GIS Salzburg</span>
+                        </div>
+                        <div class="ss-card-body">
+                            <h4>Urban Heat Exposure in Tondo, Manila — CD Laboratory GEOHUM</h4>
+                            <p class="ss-text">An internship at the Christian Doppler Laboratory GEOHUM, Department of Geoinformatics (Z_GIS), Paris Lodron University of Salzburg, carried out in partnership with Médecins Sans Frontières (MSF). The subject was urban heat exposure in Tondo, Manila — one of the most densely populated urban districts anywhere. MSF needed to know where heat concentrates inside the district: fine enough to speak to individual neighbourhoods, and often enough to follow how conditions shift through a season. Thermal satellites force a trade-off between the two. MODIS observes daily but at one kilometre, where the whole study area collapses into a handful of pixels; Landsat resolves a hundred metres but returns only every sixteen days, and tropical cloud cover removes most of those acquisitions. The task was to produce something that resolves both. <a class="ss-viewmore" href="https://storymaps.arcgis.com/stories/c3deab0eecda4156877de0046094fb68" target="_blank" rel="noopener">See more <i class="fas fa-arrow-right"></i></a></p>
+                        </div>
+                    </article>
+
+                </div>
+        </div>
+    </section>
+
+    <!-- ========== CONFERENCES & WORKSHOPS SECTION ========== -->
+    <section id="conferences" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag"><i class="fas fa-microphone-alt"></i> Academic Engagement</span>
+                <h2 class="section-title">Conferences & <span class="highlight">Workshops</span></h2>
+                <p class="section-subtitle">Presentations, seminars, and professional development</p>
+            </div>
+            
+            <div class="conf-grid">
+                <div class="conf-category">
+                    <h3><i class="fas fa-chalkboard"></i> Presentations & Conferences</h3>
+                    <div class="conf-list">
+                        <div class="conf-item">
+                            <span class="conf-date">2026</span>
+                            <div class="conf-details">
+                                <h4>GeoMundus 2026 — Geospatial Intelligence for Disaster Resilience</h4>
+                                <p><i class="fas fa-map-marker-alt"></i> Universitat Jaume I, Castellón de la Plana, Spain</p>
+                            </div>
+                        </div>
+                        <div class="conf-item">
+                            <span class="conf-date">Dec 2025</span>
+                            <div class="conf-details">
+                                <h4>Second Pan African Conference</h4>
+                                <p><i class="fas fa-map-marker-alt"></i> Tlemcen, Algeria</p>
+                            </div>
+                        </div>
+                        <div class="conf-item">
+                            <span class="conf-date">Nov 2024</span>
+                            <div class="conf-details">
+                                <h4>First Pan African University International Conference</h4>
+                                <p><i class="fas fa-map-marker-alt"></i> University of Ibadan, Nigeria</p>
+                            </div>
+                        </div>
+                        <div class="conf-item">
+                            <span class="conf-date">Jun 2024</span>
+                            <div class="conf-details">
+                                <h4>Annual Conference of Space Science & Geospatial Institute</h4>
+                                <p><i class="fas fa-map-marker-alt"></i> Addis Ababa, Ethiopia</p>
+                            </div>
+                        </div>
+                        <div class="conf-item">
+                            <span class="conf-date">Jun 2024</span>
+                            <div class="conf-details">
+                                <h4>Planetary, Astronomy, Magnetism & Space Weather Conference</h4>
+                                <p><i class="fas fa-map-marker-alt"></i> Addis Ababa, Ethiopia</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="conf-category">
+                    <h3><i class="fas fa-users"></i> Seminars & Workshops</h3>
+                    <div class="conf-list">
+                        <div class="conf-item">
+                            <span class="conf-badge">Seminar</span>
+                            <div class="conf-details">
+                                <h4>"It's Time to Assign Nonforested, Nonagricultural Lands a Global Designation"</h4>
+                                <p><i class="fas fa-building"></i> Cambridge Prisms</p>
+                            </div>
+                        </div>
+                        <div class="conf-item">
+                            <span class="conf-badge">Workshop</span>
+                            <div class="conf-details">
+                                <h4>Promoting Equity and Social Justice in Online Work Environments</h4>
+                                <p><i class="fas fa-building"></i> University of the People</p>
+                            </div>
+                        </div>
+                        <div class="conf-item">
+                            <span class="conf-badge">Workshop</span>
+                            <div class="conf-details">
+                                <h4>National & In-house Curriculum Review</h4>
+                                <p><i class="fas fa-building"></i> Haramaya University</p>
+                            </div>
+                        </div>
+                        <div class="conf-item">
+                            <span class="conf-badge">Instructor</span>
+                            <div class="conf-details">
+                                <h4>Ethio Space Kids Club Summer Camp</h4>
+                                <p><i class="fas fa-calendar"></i> Aug–Sep 2023</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== CERTIFICATES SECTION ========== -->
+    <section id="certificates" class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag"><i class="fas fa-certificate"></i> Credentials</span>
+                <h2 class="section-title">Certificates & <span class="highlight">Training</span></h2>
+                <p class="section-subtitle">Continuous professional development through MOOCs and workshops</p>
+            </div>
+            
+            <div class="cert-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="rs">Remote Sensing</button>
+                <button class="filter-btn" data-filter="programming">Programming</button>
+                <button class="filter-btn" data-filter="gis">GIS</button>
+                <button class="filter-btn" data-filter="ml">Machine Learning</button>
+            </div>
+            
+            <div class="cert-grid">
+                <div class="cert-card" data-category="rs">
+                    <div class="cert-icon"><i class="fas fa-drone"></i></div>
+                    <h4>UAVs in Precision Agriculture</h4>
+                    <p class="cert-issuer"><i class="fas fa-building"></i> Geoversity & ITC</p>
+                    <p class="cert-date"><i class="fas fa-calendar"></i> 2025</p>
+                </div>
+                
+                <div class="cert-card" data-category="rs">
+                    <div class="cert-icon"><i class="fas fa-satellite"></i></div>
+                    <h4>Exploration of Copernicus and Sentinel Data</h4>
+                    <p class="cert-issuer"><i class="fas fa-building"></i> Geoversity & ITC</p>
+                    <p class="cert-date"><i class="fas fa-calendar"></i> 2025</p>
+                </div>
+                
+                <div class="cert-card" data-category="rs">
+                    <div class="cert-icon"><i class="fas fa-seedling"></i></div>
+                    <h4>High-resolution Crop Monitoring for Food Security Using EO</h4>
+                    <p class="cert-issuer"><i class="fas fa-building"></i> EO AFRICA R&D Facility</p>
+                    <p class="cert-date"><i class="fas fa-calendar"></i> 2025</p>
+                </div>
+                
+                <div class="cert-card" data-category="rs">
+                    <div class="cert-icon"><i class="fas fa-sun"></i></div>
+                    <h4>Drought Assessment and Monitoring from Space v3</h4>
+                    <p class="cert-issuer"><i class="fas fa-building"></i> EO AFRICA & ITC</p>
+                    <p class="cert-date"><i class="fas fa-calendar"></i> 2025</p>
+                </div>
+                
+                <div class="cert-card" data-category="rs">
+                    <div class="cert-icon"><i class="fas fa-satellite-dish"></i></div>
+                    <h4>Introduction to Remote Sensing</h4>
+                    <p class="cert-issuer"><i class="fas fa-building"></i> Geo University</p>
+                    <p class="cert-date"><i class="fas fa-calendar"></i> 2025</p>
+                </div>
+                
+                <div class="cert-card" data-category="rs">
+                    <div class="cert-icon"><i class="fas fa-image"></i></div>
+                    <h4>Remote Sensing & Satellite Image Processing (EOS Platform)</h4>
+                    <p class="cert-issuer"><i class="fas fa-building"></i> Geo University</p>
+                    <p class="cert-date"><i class="fas fa-calendar"></i> 2025</p>
+                </div>
+                
+                <div class="cert-card" data-category="gis">
+                    <div class="cert-icon"><i class="fas fa-globe"></i></div>
+                    <h4>Coordinate Reference Systems, Projections & Spatial Data</h4>
+                    <p class="cert-issuer"><i class="fas fa-building"></i> Geo University</p>
+                    <p class="cert-date"><i class="fas fa-calendar"></i> 2025</p>
+                </div>
+                
+                <div class="cert-card" data-category="gis">
+                    <div class="cert-icon"><i class="fas fa-layer-group"></i></div>
+                    <h4>Learn the FOSS4G Stack: QGIS 3 Desktop</h4>
+                    <p class="cert-issuer"><i class="fas fa-building"></i> Geo University</p>
+                    <p class="cert-date"><i class="fas fa-calendar"></i> 2025</p>
+                </div>
+                
+                <div class="cert-card" data-category="rs">
+                    <div class="cert-icon"><i class="fas fa-wave-square"></i></div>
+                    <h4>Hyperspectral Thermal Image Unmixing</h4>
+                    <p class="cert-issuer"><i class="fas fa-building"></i> Geo University</p>
+                    <p class="cert-date"><i class="fas fa-calendar"></i> 2025</p>
+                </div>
+                
+                <div class="cert-card" data-category="programming">
+                    <div class="cert-icon"><i class="fab fa-python"></i></div>
+                    <h4>Digital Image Processing with OpenCV in Python</h4>
+                    <p class="cert-issuer"><i class="fas fa-building"></i> Geo University</p>
+                    <p class="cert-date"><i class="fas fa-calendar"></i> 2025</p>
+                </div>
+                
+                <div class="cert-card" data-category="ml">
+                    <div class="cert-icon"><i class="fas fa-brain"></i></div>
+                    <h4>Machine Learning for Data Science and Analytics</h4>
+                    <p class="cert-issuer"><i class="fas fa-building"></i> ColumbiaX / edX</p>
+                    <p class="cert-date"><i class="fas fa-calendar"></i> 2022</p>
+                </div>
+                
+                <div class="cert-card" data-category="programming">
+                    <div class="cert-icon"><i class="fab fa-python"></i></div>
+                    <h4>Python Basics for Data Science</h4>
+                    <p class="cert-issuer"><i class="fas fa-building"></i> IBM / edX</p>
+                    <p class="cert-date"><i class="fas fa-calendar"></i> 2022</p>
+                </div>
+                
+                <div class="cert-card" data-category="ml">
+                    <div class="cert-icon"><i class="fas fa-robot"></i></div>
+                    <h4>AI for Everyone</h4>
+                    <p class="cert-issuer"><i class="fas fa-building"></i> IBM / edX</p>
+                    <p class="cert-date"><i class="fas fa-calendar"></i> 2022</p>
+                </div>
+                
+                <div class="cert-card" data-category="ml">
+                    <div class="cert-icon"><i class="fas fa-chart-line"></i></div>
+                    <h4>Data Science: Visualization</h4>
+                    <p class="cert-issuer"><i class="fas fa-building"></i> HarvardX / edX</p>
+                    <p class="cert-date"><i class="fas fa-calendar"></i> 2022</p>
+                </div>
+                
+                <div class="cert-card" data-category="ml">
+                    <div class="cert-icon"><i class="fas fa-calculator"></i></div>
+                    <h4>Essential Linear Algebra for Data Science</h4>
+                    <p class="cert-issuer"><i class="fas fa-building"></i> CU Boulder / Coursera</p>
+                    <p class="cert-date"><i class="fas fa-calendar"></i> 2023</p>
+                </div>
+                
+                <div class="cert-card" data-category="programming">
+                    <div class="cert-icon"><i class="fas fa-registered"></i></div>
+                    <h4>Data Science in R</h4>
+                    <p class="cert-issuer"><i class="fas fa-building"></i> Udemy</p>
+                    <p class="cert-date"><i class="fas fa-calendar"></i> 2024</p>
+                </div>
+                
+                <div class="cert-card" data-category="gis">
+                    <div class="cert-icon"><i class="fas fa-map"></i></div>
+                    <h4>Remote Sensing, QGIS and Data Import</h4>
+                    <p class="cert-issuer"><i class="fas fa-building"></i> ALISON</p>
+                    <p class="cert-date"><i class="fas fa-calendar"></i> 2022</p>
+                </div>
+                
+                <div class="cert-card" data-category="gis">
+                    <div class="cert-icon"><i class="fas fa-city"></i></div>
+                    <h4>Geospatial Analysis in Urban Planning</h4>
+                    <p class="cert-issuer"><i class="fas fa-building"></i> ALISON</p>
+                    <p class="cert-date"><i class="fas fa-calendar"></i> 2022</p>
+                </div>
+                
+                <div class="cert-card" data-category="rs">
+                    <div class="cert-icon"><i class="fas fa-water"></i></div>
+                    <h4>Introduction to Water and Climate</h4>
+                    <p class="cert-issuer"><i class="fas fa-building"></i> DelftX / edX</p>
+                    <p class="cert-date"><i class="fas fa-calendar"></i> 2022</p>
+                </div>
+                
+                <div class="cert-card" data-category="gis">
+                    <div class="cert-icon"><i class="fas fa-building"></i></div>
+                    <h4>CitiesX: The Past, Present and Future of Urban Life</h4>
+                    <p class="cert-issuer"><i class="fas fa-building"></i> HarvardX / edX</p>
+                    <p class="cert-date"><i class="fas fa-calendar"></i> 2022</p>
+                </div>
+                
+                <div class="cert-card" data-category="programming">
+                    <div class="cert-icon"><i class="fab fa-java"></i></div>
+                    <h4>Java Programming for Beginners</h4>
+                    <p class="cert-issuer"><i class="fas fa-building"></i> Udemy</p>
+                    <p class="cert-date"><i class="fas fa-calendar"></i> 2024</p>
+                </div>
+            </div>
+            
+            <p class="cert-note">Showing 21 of 30+ certificates from Geoversity, ITC, EO AFRICA, Coursera, edX, Udemy, ALISON, and more</p>
+        </div>
+    </section>
+    
+    <!-- ========== VOLUNTEERING SECTION ========== -->
+    <section id="volunteering" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag"><i class="fas fa-hands-helping"></i> Community Service</span>
+                <h2 class="section-title">Volunteer <span class="highlight">Work</span></h2>
+                <p class="section-subtitle">Giving back through professional expertise</p>
+            </div>
+            
+            <div class="volunteer-grid">
+                <div class="volunteer-card">
+                    <div class="volunteer-icon"><i class="fas fa-city"></i></div>
+                    <div class="volunteer-content">
+                        <h3>Urban Planning Support</h3>
+                        <h4>Furii Sub-City Plan and Development Office, Sheger City</h4>
+                        <span class="volunteer-period"><i class="fas fa-calendar"></i> Jun – Nov 2024</span>
+                        <p>Provided GIS and spatial planning expertise to support urban development initiatives in the growing Sheger City metropolitan area.</p>
+                    </div>
+                </div>
+                
+                <div class="volunteer-card">
+                    <div class="volunteer-icon"><i class="fas fa-map-marked-alt"></i></div>
+                    <div class="volunteer-content">
+                        <h3>Cadastral Mapping & Surveying</h3>
+                        <h4>Sebeta City Municipality</h4>
+                        <span class="volunteer-period"><i class="fas fa-calendar"></i> Jun – Aug 2019</span>
+                        <p>Volunteered surveying and GIS mapping skills to support municipal land administration and urban cadastral development.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== CONTACT SECTION ========== -->
+    <section id="contact" class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag"><i class="fas fa-envelope"></i> Get in Touch</span>
+                <h2 class="section-title">Contact <span class="highlight">Me</span></h2>
+                <p class="section-subtitle">Let's discuss research collaboration, consulting, or opportunities</p>
+            </div>
+            
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                        <div class="contact-details">
+                            <h4>Email</h4>
+                            <p>kalid.yasin@stud.plus.ac.at</p>
+                            <p>kalidh84@gmail.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                        <div class="contact-details">
+                            <h4>Phone</h4>
+                            <p>Whatsapp: +251 923 328 893</p>
+                            <p>+4367763480369</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div class="contact-details">
+                            <h4>Location</h4>
+                            <p>Olomouc, Czech Republic</p>
+                            <p>(Originally from Ethiopia)</p>
+                        </div>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/kalid-hassen-yasin-061a861a1/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://github.com/Dodokal" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="https://www.researchgate.net/profile/Kalid-Yasin?ev=hdr_xprf" target="_blank"><i class="fab fa-researchgate"></i></a>
+                        <a href="https://scholar.google.com/citations?user=sUibU4UAAAAJ" target="_blank"><i class="fas fa-graduation-cap"></i></a>
+                        <a href="https://orcid.org/0000-0001-6231-1312" target="_blank"><i class="fab fa-orcid"></i></a>
+                    </div>
+                </div>
+                
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" required placeholder="John Doe">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Your Email</label>
+                        <input type="email" id="email" name="email" required placeholder="john@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" required placeholder="Research Collaboration">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" required placeholder="Your message here..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">
+                        <span>Send Message</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="footer-logo">🌍 KHY</span>
+                    <p>Geospatial Data Scientist & Remote Sensing Expert exploring the Digital Earth.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <a href="#home">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#map-gallery">Map Gallery</a>
+                    <a href="#publications">Publications</a>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Connect</h4>
+                    <a href="https://www.linkedin.com/in/kalid-hassen-yasin-061a861a1" target="_blank">LinkedIn</a>
+                    <a href="https://github.com/Dodokal" target="_blank">GitHub</a>
+                    <a href="https://www.researchgate.net/profile/Kalid-Yasin?ev=hdr_xprf" target="_blank">ResearchGate</a>
+                    <a href="https://scholar.google.com/citations?user=sUibU4UAAAAJ" target="_blank">Google Scholar</a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Kalid Hassen Yasin. All Rights Reserved.</p>
+                <p class="footer-note">Lecturer, Haramaya University · EMJM Copernicus Digital Earth Scholar · <a href="index.html">3D Orbit view</a></p>
+                <p class="footer-credits">Icons: Font Awesome (CC BY 4.0). 3D Earth imagery: NASA Blue Marble &amp; Black Marble (public domain).</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <!-- ========== WAVING FLAGS ========== -->
+    <div class="flags-container">
+        <div class="flag-item" title="Ethiopia 🇪🇹">
+            <video autoplay loop muted playsinline>
+                <source src="assets/videos/ethiopia-flag.webm" type="video/webm">
+            </video>
+        </div>
+        <div class="flag-item" title="Austria 🇦🇹">
+            <video autoplay loop muted playsinline>
+                <source src="assets/videos/austria-flag.webm" type="video/webm">
+            </video>
+        </div>
+        <div class="flag-item" title="Czech Republic 🇨🇿">
+            <video autoplay loop muted playsinline>
+                <source src="assets/videos/czech-flag.webm" type="video/webm">
+            </video>
+        </div>
+    </div>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop"><i class="fas fa-chevron-up"></i></button>
+
+    <!-- ========== ISSonVIS 2026 FULL REPORT MODAL ========== -->
+    <div class="ss-modal" id="issonvis-modal" aria-hidden="true">
+        <div class="ss-modal-overlay" data-close></div>
+        <div class="ss-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="issonvis-modal-title">
+            <button class="ss-modal-close" data-close aria-label="Close report"><i class="fas fa-times"></i></button>
+            <div class="ss-modal-header">
+                <span class="ss-modal-tag"><i class="fas fa-award"></i> International Summer School · 3 ECTS</span>
+                <h3 id="issonvis-modal-title">ISSonVIS 2026 — <span class="highlight">Emotions and Map</span></h3>
+                <p class="ss-modal-sub">The Affective Dimension of Visualization · Online · 1–2 April 2026</p>
+                <p class="ss-modal-host"><i class="fas fa-university"></i> Hosted by the Department of Geoinformatics, Palacký University Olomouc, Czechia</p>
+            </div>
+            <div class="ss-modal-body">
+                <p>ISSonVIS 2026 packed a lot into two days on emotions and maps. The opening got moving fast. Georg Gartner laid out how emotion and meaning sit within cartographic theory, which gave the rest of the program something to hang on to. Jiří Pánek then took it into emotional mapping and made the concept concrete, close enough to practice that you could see how it would actually get used. The afternoon stayed in that territory: human-centered mapping, perception, and how people relate to the spaces around them. By the end of day one, the emotion-recognition and environmental-perception talks had pulled theory and practice into the same conversation.</p>
+                <p>Day 2 was more varied. The session on satire and aggression in maps was a welcome shift in tone. After that, it moved into change, emergencies, and emotional data in spatial decision-making. The closing talks on design choices and prompt-based cartography landed where things are heading with AI in cartography. Two days, broad coverage, and the emotions-and-maps thread held across the whole thing.</p>
+
+                <div class="issonvis-media">
+                    <figure class="issonvis-figure issonvis-figure-cert">
+                        <a href="assets/certificates/issonvis2026_yasin_kalid.pdf" target="_blank" rel="noopener" title="Open full certificate (PDF)">
+                            <img src="assets/images/issonvis2026_certificate.jpg" alt="ISSonVIS 2026 Certificate of Participation – Kalid Yasin" loading="lazy" onerror="this.closest('.issonvis-figure').classList.add('asset-missing')">
+                            <span class="issonvis-overlay"><i class="fas fa-file-pdf"></i> View Certificate (PDF)</span>
+                        </a>
+                        <figcaption>Certificate of participation — 3 ECTS, Palacký University Olomouc</figcaption>
+                    </figure>
+
+                    <figure class="issonvis-figure issonvis-figure-photo">
+                        <img src="assets/images/issonvis2026_group.jpg" alt="ISSonVIS 2026 participants group photo" loading="lazy" onerror="this.closest('.issonvis-figure').classList.add('asset-missing')">
+                        <figcaption>ISSonVIS 2026 participants · <em>Photo credit: Jakub Koníček, <a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn post</a></em></figcaption>
+                    </figure>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Summer-school modal logic -->
+    <script>
+    (function () {
+        var openers = document.querySelectorAll('[data-modal]');
+        function openModal(id) {
+            var m = document.getElementById(id);
+            if (!m) return;
+            m.classList.add('open');
+            m.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeModal(m) {
+            m.classList.remove('open');
+            m.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        }
+        openers.forEach(function (el) {
+            el.addEventListener('click', function () { openModal(el.getAttribute('data-modal')); });
+            el.addEventListener('keydown', function (e) {
+                if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openModal(el.getAttribute('data-modal')); }
+            });
+        });
+        document.querySelectorAll('.ss-modal [data-close]').forEach(function (btn) {
+            btn.addEventListener('click', function () { closeModal(btn.closest('.ss-modal')); });
+        });
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.ss-modal.open').forEach(closeModal);
+            }
+        });
+    })();
+    </script>
+
+    <!-- Map viewer -->
+    <div class="mg-lightbox" id="mgLightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Map viewer">
+        <div class="mg-lb-bar">
+            <span>Scroll or pinch to zoom · drag to pan · double-click to zoom in</span>
+            <div>
+                <button type="button" data-z="out" aria-label="Zoom out">−</button>
+                <button type="button" data-z="in" aria-label="Zoom in">+</button>
+                <a id="mgLbOpen" href="#" target="_blank" rel="noopener">Open image ↗</a>
+                <button type="button" data-z="close" aria-label="Close">✕</button>
+            </div>
+        </div>
+        <div class="mg-lb-stage" id="mgStage"><img id="mgLbImg" alt="Full-size map" draggable="false"></div>
+    </div>
+    <script src="assets/js/classic-extra.js"></script>
+
+    <!-- Scripts -->
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/web3d.js"></script>
+</body>
+</html>
